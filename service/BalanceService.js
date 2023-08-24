@@ -62,9 +62,11 @@ module.exports = {
             if (usageData.total_usage) {
                 usage = usageData.total_usage / 100;
             }
+            let left = total - usage;
             return {
                 total,
                 usage,
+                left,
             };
         } catch (e) {
             console.log(e);
@@ -76,6 +78,7 @@ module.exports = {
         return {
             total: 0,
             usage: 0,
+            left:0
         };
     },
 };
