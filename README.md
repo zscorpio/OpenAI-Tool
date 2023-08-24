@@ -13,7 +13,7 @@ OpenAI-Tool, 目前只支持查询余额
 刚用阿里云 云函数搭建了一个, 腾讯云 云函数比较简单, 华为云太折腾了, 搞不定.
 耗时大概5s左右, 还不算太慢.
 ```shell
-curl --location --request GET 'https://htmlpng-puppetetest-sxg-sacjhvqgdv.us-east-1.fcapp.run/?account=账号&password=密码' \
+curl  'https://htmlpng-puppetetest-sxg-sacjhvqgdv.us-east-1.fcapp.run/?account=-pd8umqoa@hvtp50.szww.uk&password=1lEzsR94'
 ```
 
 ## 使用姿势
