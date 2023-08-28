@@ -24,7 +24,13 @@ module.exports = {
                 delete newProto.webdriver;
                 navigator.__proto__ = newProto;
             });
-
+            await page.setRequestInterception(true)
+            let authorization;
+            page.on('request', (request) => {
+                if (request.url().endsWith("dashboard/billing/credit_grants"))
+                    authorization = request.headers()["authorization"]
+                request.continue()
+            })
             await page.goto('https://platform.openai.com/login?launch');
             await page.waitForSelector('#username');
             await page.type('#username', account, { delay: parseInt(Math.random() * 50 + '') });
@@ -67,6 +73,7 @@ module.exports = {
                 total,
                 usage,
                 left,
+                authorization
             };
         } catch (e) {
             console.log(e);
