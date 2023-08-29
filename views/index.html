@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="https://cdn.staticfile.org/bootstrap/5.3.1/css/bootstrap.min.css"
+          rel="stylesheet">
+    <script src="https://cdn.staticfile.org/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.7.0/jquery.min.js"></script>
+    <title>OpenAI余额查询</title>
+</head>
+<body>
+<style>
+    body {
+        padding: 10px;
+    }
+</style>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">账号</th>
+        <th scope="col">总额度</th>
+        <th scope="col">已使用额度</th>
+        <th scope="col">剩余额度</th>
+        <th scope="col">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td>@fat</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>Larry the Bird</td>
+        <td>Larry the Bird</td>
+        <td>@twitter</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+    <script>
+        $(function (){
+            let accountList = JSON.parse($.ajax({url: '/accountList', async: false}).responseText);
+            console.log(accountList);
+        })
+    </script>
+</table>
+</body>
+</html>

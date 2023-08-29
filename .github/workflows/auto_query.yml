@@ -1,0 +1,23 @@
+#name: OpenAI Billing Auto Query
+#
+#on:
+#  push:
+#  gollum:
+#  schedule:
+#    - cron: '0 0,4,8,12,16,20  * * *'
+#
+#jobs:
+#  sign:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: use Node.js 18.x
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: 18.x
+#      - name: npm install and query billing
+#        run: |
+#          npm install
+#          nohup node index.js &
+#          sh query.sh
