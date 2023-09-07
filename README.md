@@ -4,6 +4,8 @@ OpenAI-Tool, 目前只支持查询余额
 
 ## 更新记录
 
+9.7 后续会更新在 https://github.com/zscorpio/account-manager 这个里面
+
 8.29 请求之后会缓存http头部的authorization到本地文件cache, 下次如果这个没有失效, 会直接http请求来获取余额加快请求速度.
 考虑再加个利用github action定时获取余额推送邮件或者企业微信.
 
