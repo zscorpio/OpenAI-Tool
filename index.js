@@ -5,7 +5,7 @@ const path = require('path');
 const appDir = path.dirname(require.main.filename);
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 // 支持json请求
 app.use(express.json());
