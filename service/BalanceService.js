@@ -5,6 +5,12 @@ const axios = require('axios');
 const DateUtils = require('../utils/DateUtils');
 const appDir = path.dirname(require.main.filename);
 
+function sleep(time) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, time);
+    });
+};
+
 module.exports = {
     async getBalance(account, password) {
         let cacheInfo = {};
@@ -58,11 +64,14 @@ module.exports = {
             });
             await page.goto('https://platform.openai.com/login?launch');
             await page.waitForSelector('#username');
-            await page.type('#username', account, { delay: parseInt(Math.random() * 50 + '') });
+            await page.type('#username', account, {delay: parseInt(Math.random() * 50 + '')});
             const submitBtn = await page.$('button');
             await submitBtn.click();
             await page.waitForSelector('#password');
-            await page.type('#password', password, { delay: parseInt(Math.random() * 50 + '') });
+            await page.type('#password', password, {delay: parseInt(Math.random() * 50 + '')});
+
+            await sleep(2000);
+
             const loginBtn = (await page.$$('button'))[2];
             await loginBtn.click();
 
@@ -124,9 +133,9 @@ module.exports = {
         try {
             const usageData = await axios.get(
                 'https://api.openai.com/dashboard/billing/usage?end_date=' +
-                    DateUtils.formatMonthEndDate() +
-                    '&start_date=' +
-                    DateUtils.formatMonthStartDate(),
+                DateUtils.formatMonthEndDate() +
+                '&start_date=' +
+                DateUtils.formatMonthStartDate(),
                 {
                     timeout: 5000,
                     headers: {
